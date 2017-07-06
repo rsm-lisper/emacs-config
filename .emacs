@@ -7,59 +7,40 @@
              '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
-
-
+;; różne zmienne konfiguracyjne:
 (custom-set-variables
- '(custom-safe-themes   ; leuven jest dobry, leuven może się uruchamiać, pozwalam
-   (quote
-    ("d5f17ae86464ef63c46ed4cb322703d91e8ed5e718bf5a7beb69dd63352b26b2" default)))
+ '(column-number-mode t)   ; numer kolumny w mode-line
  '(display-time-mode t)    ; bo lubię wiedzieć która godzina
- '(tool-bar-mode nil))     ; tool bar jest bezużyteczny dla mnie
+ '(tool-bar-mode nil)      ; tool bar jest bezużyteczny dla mnie
+ '(doc-view-continuous t)  ; żeby dokumenty pdf wyświetlały się z miękkim podziałem na strony
+ '(global-linum-mode t)    ; wyświetlanie numerów linii po lewej
+ '(erc-email-userid "<email>") ; klient irc
+ '(erc-nick "<nick>")
+ '(erc-user-full-name "<np-imie-nazwisko>")
+ '(package-selected-packages   ; potrzebne pakiety, głównie tematy
+   (quote
+    (moe-theme monokai-alt-theme monokai-theme alect-themes tangotango-theme w3m gh-md diff-hl ox-gfm markdown-mode slime))))
 
-
-;; bo to dobry theme jest
-(require 'leuven-theme)
-(load-theme 'leuven)
-
-
-;; fringe - to te paski po bokach z dziwnymi znaczkami
-(setq-default indicate-buffer-boundaries 'left)  ; oznaczamy granice bufora
-(setq-default indicate-empty-lines +1)           ; oznaczamy puste linie
-
-
-;; emacs org
-(setq org-latex-packages-alist '(("margin=2cm" "geometry" nil)))
-
-
-;; ruby, rails i przyjaciele
-;; enhanced-ruby-mode
-(autoload 'enh-ruby-mode "enh-ruby-mode" "major mode for ruby files" t)
-(add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.rake$" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("Rakefile$" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.gemspec$" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.ru$" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("Gemfile$" . enh-ruby-mode))
-
-(add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
-
-;; emacs-pry
-(add-to-list 'load-path "~/.emacs.d/vendor/emacs-pry")
-(require 'pry)
-;; optionals
-(global-set-key [S-f9] 'pry-intercept)
-(global-set-key [f9] 'pry-intercept-rerun)
-
-;; rinari - pomaga w nawigowaniu po rails
-(require 'rinari)
-(global-rinari-mode +1)
-
+;; slime - lisp ide
+;; Set your lisp system and, optionally, some contribs
+(setq inferior-lisp-program "/usr/bin/sbcl")
+(slime-setup '(slime-fancy))
 
 ;; diff highlight - oznaczanie zmian na podstawie repo (poprzez vc więc obsługuje różne)
 (global-diff-hl-mode)   ; włącza diff-hl dla wszystkich buforów
 (diff-hl-flydiff-mode)  ; włącza diff w locie - nie trzeba zapisywać pliku żeby widział zmiany
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode)  ; dodaje diff-hl w dired
 
-;; robe-mode
-;(add-hook 'ruby-mode-hook 'robe-mode)
-;(add-hook 'robe-mode-hook 'ac-robe-setup)
+;; fringe - to te paski po bokach z dziwnymi znaczkami
+(setq-default indicate-buffer-boundaries 'left)  ; oznaczamy granice bufora
+(setq-default indicate-empty-lines +1)           ; oznaczamy puste linie
+
+;; emacs org - marginesy (które dla A4 nie chcą sensownie działać)
+(setq org-latex-packages-alist '(("margin=2cm" "geometry" nil)))
+
+;; theme / wygląd
+(require 'tangotango-theme)
+(load-theme 'tangotango)
+
+;; start emacs deamon - żeby używać emacsclient
+(server-start)
