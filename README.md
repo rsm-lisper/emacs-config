@@ -4,7 +4,7 @@
 ponieważ emacs to rewelacyjny (z wielu powodów) wielofunkcyjny edytor i środowisko pracy, ale niestety domyślna konfiguracja jest oszałamiająco uboga.
 
 ## jak działa konfiguracja w emacs'ie?
-emacs dla konfiguracji jak większość aplikacji w lispie nie stosuje odrębnej składni dla konfiguracji. konfigurację stanowi kod, który po wczytaniu emacs'a jest uruchamiany. tak więc konfiguracja to tak na prawdę zmiany na działającej aplikacji. co za tym idzie możemy je robić w każdej chwili i możemy dowolnie przekonfigurować emacs'a w trakcie pracy.
+emacs dla konfiguracji jak większość aplikacji w lispie nie stosuje odrębnej składni. lispy generalnie potrafią zmieniać w locie działającą aplikację. konfigurację stanowi kod, który po wczytaniu emacs'a jest dodatkowo uruchamiany. tak więc konfiguracja to tak na prawdę zmiany na działającej aplikacji. co za tym idzie możemy je robić w każdej chwili i możemy dowolnie przekonfigurować emacs'a w trakcie pracy.
 
 emacs wczytuje konfigurację z pliku `~/.emacs` lub jeśli taki nie istnieje wczytuje z `~/.emacs.d/init.el`. z mojego doświadczenia plik `~/.emacs` jest wygodny, gdy całość konfiguracji swobodnie mieści się w pojedynczym pliku. niestety gdy konfiguracja rośnie i zaczynają pojawiać się warianty (do domu, pracy etc), pojedynczy plik staje się ograniczający i wtedy wygodniej jest przenieść się z konfiguracją do podkatalogu w którym emacs trzyma różne swoje rzeczy `~/.emacs.d/`, do pliku `init.el`.
 
@@ -14,7 +14,7 @@ ja zastosowałem tutaj tą drugą wersję. sekcje rzadziej używane są w podkat
 - sklonować repozytorium do domowego katalogu emacs'a:
 ```shell
 cd ~/.emacs.d
-git clone  .
+git clone https://github.com/rsm-lisper/emacs-konfiguracja/ .
 ```
 - ustawić niezbędne dane w pliku `init.el`
 
