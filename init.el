@@ -9,20 +9,31 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
+;; potrzebne pakiety, głównie tematy
+(setq package-selected-packages
+      (quote
+       (moe-theme tangotango-theme leuven-theme w3m gh-md diff-hl ox-gfm markdown-mode slime)))
+(package-refresh-contents)
+(package-install-selected-packages)
+
 ;; różne zmienne konfiguracyjne:
 (custom-set-variables
- '(column-number-mode t)   ; numer kolumny w mode-line
- '(display-time-mode t)    ; bo lubię wiedzieć która godzina
- '(tool-bar-mode nil)      ; tool bar jest bezużyteczny dla mnie
- '(doc-view-continuous t)  ; żeby dokumenty pdf wyświetlały się z miękkim podziałem na strony
- '(global-linum-mode t)    ; wyświetlanie numerów linii
- '(make-backup-files nil)  ; nie twórz plików zapasowych
- '(erc-email-userid "<email>") ; klient irc
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
+ '(custom-safe-themes
+   (quote
+    ("9a155066ec746201156bb39f7518c1828a73d67742e11271e4f24b7b178c4710" default)))
+ '(display-time-mode t)
+ '(doc-view-continuous t)
+ '(erc-email-userid "<email>")
  '(erc-nick "<nick>")
  '(erc-user-full-name "<np-imie-nazwisko>")
- '(package-selected-packages   ; potrzebne pakiety, głównie tematy
-   (quote
-    (moe-theme tangotango-theme leueven-theme w3m gh-md diff-hl ox-gfm markdown-mode slime))))
+ '(global-linum-mode t)
+ '(make-backup-files nil)
+ '(tool-bar-mode nil))
 
 ;; łamanie długich linii
 ;(setq-default word-wrap t)
@@ -32,11 +43,17 @@
 (setq org-latex-packages-alist '(("margin=2cm" "geometry" nil)))
 
 ;; theme / wygląd
-(require 'leueven-theme)
-(load-theme 'leueven)
+(load-theme 'leuven)
 
 ;; wczytujemy włączone moduły
-(load "~/emacs.d/mods-enabled/*")
+(mapc 'load (file-expand-wildcards "~/.emacs.d/mods-enabled/*"))
 
 ;; start emacs deamon - żeby używać emacsclient
 (server-start)
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
