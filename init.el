@@ -28,15 +28,11 @@
     ("9a155066ec746201156bb39f7518c1828a73d67742e11271e4f24b7b178c4710" default)))
  '(display-time-mode t)
  '(doc-view-continuous t)
- '(erc-email-userid "<email>")
- '(erc-nick "<nick>")
- '(erc-user-full-name "<np-imie-nazwisko>")
  '(global-linum-mode t)
  '(make-backup-files nil)
  '(tool-bar-mode nil))
 
 ;; łamanie długich linii
-;(setq-default word-wrap t)
 (global-visual-line-mode t)
 
 ;; emacs org - marginesy (które dla A4 nie chcą sensownie działać)
