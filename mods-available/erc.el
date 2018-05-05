@@ -1,4 +1,4 @@
-;; -*- mode: common-lisp -*-
+;; -*- mode: emacs-lisp -*-
 
 ;;;; erc - klient irc
 
