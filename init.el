@@ -30,6 +30,9 @@
  '(doc-view-continuous t)
  '(global-linum-mode t)
  '(make-backup-files nil)
+ '(package-selected-packages
+   (quote
+    (magithub magit moe-theme tangotango-theme leuven-theme w3m gh-md diff-hl ox-gfm markdown-mode slime)))
  '(tool-bar-mode nil))
 
 ;; łamanie długich linii
