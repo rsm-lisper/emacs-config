@@ -1,6 +1,14 @@
 ;; -*- mode: emacs-lisp -*-
 
 ;; ruby, rails i przyjaciele
+
+(setq package-selected-packages
+      (quote
+       (pry rinari)))
+(package-refresh-contents)
+(package-install-selected-packages)
+
+
 ;; enhanced-ruby-mode
 (autoload 'enh-ruby-mode "enh-ruby-mode" "major mode for ruby files" t)
 (add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))

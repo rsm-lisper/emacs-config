@@ -12,7 +12,7 @@
 ;; potrzebne pakiety, głównie tematy
 (setq package-selected-packages
       (quote
-       (moe-theme tangotango-theme leuven-theme w3m gh-md diff-hl ox-gfm markdown-mode slime)))
+       (moe-theme tangotango-theme leuven-theme w3m gh-md ox-gfm)))
 (package-refresh-contents)
 (package-install-selected-packages)
 
@@ -23,19 +23,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(custom-safe-themes
-   (quote
-    ("9a155066ec746201156bb39f7518c1828a73d67742e11271e4f24b7b178c4710" default)))
  '(display-time-mode t)
  '(doc-view-continuous t)
  '(global-linum-mode t)
  '(make-backup-files nil)
- '(package-selected-packages
-   (quote
-    (magithub magit moe-theme tangotango-theme leuven-theme w3m gh-md diff-hl ox-gfm markdown-mode slime)))
  '(tool-bar-mode nil))
 
-;; łamanie długich linii
+;; łamanie długich linii - wizualne całymi wyrazami
 (global-visual-line-mode t)
 
 ;; emacs org - marginesy (które dla A4 nie chcą sensownie działać)
@@ -44,15 +38,12 @@
 ;; theme / wygląd
 (load-theme 'leuven)
 
+;; fringe - to te paski po bokach z dziwnymi znaczkami
+(setq-default indicate-buffer-boundaries 'left)  ; oznaczamy granice bufora
+(setq-default indicate-empty-lines +1)           ; oznaczamy puste linie
+
 ;; wczytujemy włączone moduły
 (mapc 'load (file-expand-wildcards "~/.emacs.d/mods-enabled/*"))
 
 ;; start emacs deamon - żeby używać emacsclient
 (server-start)
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
