@@ -1,14 +1,18 @@
-;; -*- mode: emacs-lisp -*-
+;;; org-web-proj-example.el --- przykładowy projekt web w org
 
-;;;; projekty w org'u
+;;; commentary:
+
+;; przykładowy projekt web'owy w org'u, z obsługą treści dynamicznych i plików statycznych.
+;; do <wypełnienia>.
+
+;;; code:
 
 (setq package-selected-packages
       (quote
-       (org-mode ox-publish)))
+       (ox-publish)))
 (package-refresh-contents)
 (package-install-selected-packages)
 
-(require 'org-mode)
 (require 'ox-publish)
 (setq org-publish-use-timestamps-flag nil)
 (setq org-publish-project-alist
@@ -46,3 +50,5 @@
 	 :publishing-function org-publish-attachment
 	 )
 	("<proj-name>" :components ("<proj-name-dyn>" "<proj-name-static>"))))
+
+;;; org-web-proj-example.el ends here

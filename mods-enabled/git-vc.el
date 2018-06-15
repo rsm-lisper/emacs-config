@@ -1,0 +1,1 @@
+/home/rsm/.emacs.d/mods-available/git-vc.el

@@ -1,4 +1,10 @@
-;; -*- mode: emacs-lisp -*-
+;;; init.el --- konfiguracja wspólna
+
+;;; commentary:
+
+;; konfiguracja emacs'a, część wspólna
+
+;;; code:
 
 ;; melpa - stąd pochodzą pakiety
 (require 'package)
@@ -47,3 +53,5 @@
 
 ;; start emacs deamon - żeby używać emacsclient
 (server-start)
+
+;;; init.el ends here

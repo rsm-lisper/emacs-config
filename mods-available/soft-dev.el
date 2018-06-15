@@ -1,7 +1,7 @@
 ;;; soft-dev.el --- wsparcie dla programowania, ogólne, niezależnie od języka
 
 ;;; commentary:
-;;
+
 ;; pozbierane przeze mnie różne mody, razem z konfiguracją, mające w zamyśle tworzyć środowisko developerskie.
 
 ;;; code:
@@ -9,7 +9,7 @@
 ;; potrzebne pakiety
 (setq package-selected-packages
       (quote
-       (auto-complete flx-ido projectile)))
+       (auto-complete flx-ido projectile flycheck)))
 (package-refresh-contents)
 (package-install-selected-packages)
 
@@ -27,5 +27,8 @@
 
 (require 'auto-complete)
 (global-auto-complete-mode)
+
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;;; soft-dev.el ends here
