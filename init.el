@@ -1,4 +1,10 @@
-;; -*- mode: emacs-lisp -*-
+;;; init.el --- konfiguracja wspólna
+
+;;; commentary:
+
+;; konfiguracja emacs'a, część wspólna
+
+;;; code:
 
 ;; melpa - stąd pochodzą pakiety
 (require 'package)
@@ -12,7 +18,7 @@
 ;; potrzebne pakiety, głównie tematy
 (setq package-selected-packages
       (quote
-       (moe-theme tangotango-theme leuven-theme w3m gh-md diff-hl ox-gfm markdown-mode slime)))
+       (moe-theme tangotango-theme leuven-theme w3m gh-md ox-gfm)))
 (package-refresh-contents)
 (package-install-selected-packages)
 
@@ -25,7 +31,7 @@
  '(make-backup-files nil)
  '(tool-bar-mode nil))
 
-;; łamanie długich linii
+;; łamanie długich linii - wizualne całymi wyrazami
 (global-visual-line-mode t)
 
 ;; emacs org - marginesy (które dla A4 nie chcą sensownie działać)
@@ -34,9 +40,14 @@
 ;; theme / wygląd
 (load-theme 'leuven)
 
+;; fringe - to te paski po bokach z dziwnymi znaczkami
+(setq-default indicate-buffer-boundaries 'left)  ; oznaczamy granice bufora
+(setq-default indicate-empty-lines +1)           ; oznaczamy puste linie
+
 ;; wczytujemy włączone moduły
 (mapc 'load (file-expand-wildcards "~/.emacs.d/mods-enabled/*"))
 
 ;; start emacs deamon - żeby używać emacsclient
 (server-start)
 
+;;; init.el ends here
