@@ -2,7 +2,7 @@
 
 ;;; commentary:
 
-;; konfiguracja emacs'a, część wspólna
+;; konfiguracja emacsa, część wspólna
 
 ;;; code:
 

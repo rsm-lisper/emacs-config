@@ -5,5 +5,5 @@ magithub/
 ac-comphist.dat
 ido.last
 projectile-bookmarks.eld
-mods-available/org-proj-*
-mods-enabled/org-proj-*
+mods-available/org-proj*
+mods-enabled/org-proj*

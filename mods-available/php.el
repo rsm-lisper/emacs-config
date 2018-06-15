@@ -9,7 +9,7 @@
 ;; potrzebne pakiety
 (setq package-selected-packages
       (quote
-       (php-mode web-mode ac-php feature-mode quickrun)))
+       (php-mode web-mode ac-php feature-mode flycheck quickrun)))
 (package-refresh-contents)
 (package-install-selected-packages)
 
@@ -27,6 +27,7 @@
 (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 
 (require 'flycheck)
+(global-flycheck-mode)
 (setq php-executable "/usr/bin/php")
 
 (require 'ac-php)
