@@ -29,7 +29,8 @@
  '(doc-view-continuous t)
  '(global-linum-mode t)
  '(make-backup-files nil)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(ring-bell-function 'ignore))
 
 ;; łamanie długich linii - wizualne całymi wyrazami
 (global-visual-line-mode t)
