@@ -9,10 +9,12 @@
 ;; potrzebne pakiety
 (setq package-selected-packages
       (quote
-       (auto-complete flx-ido projectile flycheck)))
+       (dumb-jump auto-complete flx-ido projectile flycheck)))
 (package-refresh-contents)
 (package-install-selected-packages)
 
+(require 'dumb-jump)
+(dumb-jump-mode)
 
 (require 'flx-ido) ;; better search/completion system
 (ido-mode 1)
