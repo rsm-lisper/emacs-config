@@ -1,10 +1,6 @@
-;;; init.el --- konfiguracja wspólna
 
-;;; commentary:
+;;;; konfiguracja emacsa, część wspólna ;;;;
 
-;; konfiguracja emacsa, część wspólna
-
-;;; code:
 
 ;; melpa - stąd pochodzą pakiety
 (require 'package)
@@ -14,13 +10,26 @@
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
+(package-refresh-contents)
+
+
+(defun require-package (package)
+  "Install given PACKAGE."
+  (if (package-installed-p package)
+      t
+    (package-install package)))
+
+(defun require-packages (package-list)
+  (if (null package-list)
+      t
+    (progn
+      (require-package (car package-list))
+      (require-packages (cdr package-list)))))
+
 
 ;; potrzebne pakiety, głównie tematy
-(setq package-selected-packages
-      (quote
-       (moe-theme tangotango-theme leuven-theme w3m gh-md ox-gfm)))
-(package-refresh-contents)
-(package-install-selected-packages)
+(require-packages '(moe-theme tangotango-theme leuven-theme w3m gh-md ox-gfm))
+
 
 ;; różne zmienne konfiguracyjne:
 (custom-set-variables
@@ -28,13 +37,20 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(column-number-mode t)
  '(display-time-mode t)
  '(doc-view-continuous t)
  '(global-linum-mode t)
  '(make-backup-files nil)
  '(ring-bell-function (quote ignore))
  '(tool-bar-mode nil))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 113 :width normal)))))
+
 
 ;; łamanie długich linii - wizualne całymi wyrazami
 (global-visual-line-mode t)
@@ -43,7 +59,8 @@
 (setq org-latex-packages-alist '(("margin=2cm" "geometry" nil)))
 
 ;; theme / wygląd
-(load-theme 'leuven)
+;;(load-theme 'leuven)
+(load-theme 'tangotango)
 
 ;; fringe - to te paski po bokach z dziwnymi znaczkami
 (setq-default indicate-buffer-boundaries 'left)  ; oznaczamy granice bufora
@@ -54,11 +71,3 @@
 
 ;; start emacs deamon - żeby używać emacsclient
 ;;(server-start)
-
-;;; init.el ends here
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

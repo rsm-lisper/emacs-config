@@ -2,12 +2,7 @@
 
 ;;;; erc - klient irc
 
-(setq package-selected-packages
-      (quote
-       (erc)))
-(package-refresh-contents)
-(package-install-selected-packages)
-
+(require-package 'erc)
 
 (custom-set-variables
  '(erc-email-userid "<email>")

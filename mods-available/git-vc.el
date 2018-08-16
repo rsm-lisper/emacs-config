@@ -1,10 +1,6 @@
 ;; -*- mode: emacs-lisp -*-
 
-(setq package-selected-packages
-      (quote
-       (diff-hl magit magithub)))
-(package-refresh-contents)
-(package-install-selected-packages)
+(require-packages '(diff-hl magit magithub))
 
 ;;;; diff highlight - oznaczanie zmian na podstawie repo (poprzez vc więc obsługuje różne)
 

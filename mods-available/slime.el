@@ -2,13 +2,9 @@
 
 ;;;; slime - lisp (common lisp) ide
 
-(setq package-selected-packages
-      (quote
-       (slime)))
-(package-refresh-contents)
-(package-install-selected-packages)
+(require-package 'slime)
 
 (require 'slime)
 ;; Set your lisp system and, optionally, some contribs
-(setq inferior-lisp-program "/usr/bin/sbcl")
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
 (slime-setup '(slime-fancy))

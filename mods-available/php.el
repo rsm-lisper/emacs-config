@@ -1,17 +1,8 @@
-;;; php.el --- support for php development
+;; -*- mode: emacs-lisp -*-
 
-;;; commentary:
-;;
 ;; pozbierane przeze mnie różne mody, razem z konfiguracją, mające w zamyśle tworzyć środowisko developerskie do php.
 
-;;; code:
-
-;; potrzebne pakiety
-(setq package-selected-packages
-      (quote
-       (php-mode web-mode ac-php feature-mode flycheck quickrun)))
-(package-refresh-contents)
-(package-install-selected-packages)
+(require-packages '(php-mode web-mode ac-php feature-mode flycheck quickrun))
 
 (require 'php-mode)
 (setq php-lineup-cascaded-calls t)
@@ -39,5 +30,3 @@
 ;; klawiszologia:
 ;; C-c C-f :: search php documentation
 ;; C-c C-r :: (php-send-region) execute the selected php region (output in *PHP* buff)
-
-;;; php.el ends here

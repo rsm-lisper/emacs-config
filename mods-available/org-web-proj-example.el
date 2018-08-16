@@ -1,11 +1,7 @@
-;;; org-web-proj-example.el --- przykładowy projekt web w org
-
-;;; commentary:
+;; -*- mode: emacs-lisp -*-
 
 ;; przykładowy projekt web'owy w org'u, z obsługą treści dynamicznych i plików statycznych.
 ;; do <wypełnienia>.
-
-;;; code:
 
 (setq package-selected-packages
       (quote
@@ -50,5 +46,3 @@
 	 :publishing-function org-publish-attachment
 	 )
 	("<proj-name>" :components ("<proj-name-dyn>" "<proj-name-static>"))))
-
-;;; org-web-proj-example.el ends here

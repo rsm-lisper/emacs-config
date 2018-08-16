@@ -2,11 +2,7 @@
 
 ;; ruby, rails i przyjaciele
 
-(setq package-selected-packages
-      (quote
-       (pry rinari)))
-(package-refresh-contents)
-(package-install-selected-packages)
+(require-packages '(pry rinari))
 
 
 ;; enhanced-ruby-mode
