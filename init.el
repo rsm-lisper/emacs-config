@@ -60,7 +60,7 @@
 
 ;; theme / wygląd
 ;;(load-theme 'leuven)
-(load-theme 'tangotango)
+(load-theme 'moe-light)
 
 ;; fringe - to te paski po bokach z dziwnymi znaczkami
 (setq-default indicate-buffer-boundaries 'left)  ; oznaczamy granice bufora

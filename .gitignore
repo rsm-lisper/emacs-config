@@ -3,6 +3,7 @@ elpa/
 eshell/
 magithub/
 ac-comphist.dat
+tramp
 ido.last
 projectile-bookmarks.eld
 mods-available/org-proj*
