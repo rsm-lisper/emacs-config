@@ -13,11 +13,12 @@
 (package-refresh-contents)
 
 
-(defun require-package (package)
-  "Install given PACKAGE."
-  (if (package-installed-p package)
+(defun require-package (pkg)
+  "Install and require given PKG."
+  (if (package-installed-p pkg)
       t
-    (package-install package)))
+    (package-install pkg))
+  (require pkg))
 
 (defun require-packages (package-list)
   (if (null package-list)
@@ -28,7 +29,7 @@
 
 
 ;; potrzebne pakiety, głównie tematy
-(require-packages '(moe-theme tangotango-theme leuven-theme w3m gh-md ox-gfm))
+(require-packages '(moe-theme tangotango-theme leuven-theme gh-md ox-gfm))
 
 
 ;; różne zmienne konfiguracyjne:
@@ -68,6 +69,3 @@
 
 ;; wczytujemy włączone moduły
 (mapc 'load (file-expand-wildcards "~/.emacs.d/mods-enabled/*"))
-
-;; start emacs deamon - żeby używać emacsclient
-;;(server-start)
