@@ -1,3 +1,1 @@
-;; -*- mode: emacs-lisp -*-
-
-(require 'geiser-install)
+/home/rsm/.emacs.d/mods-available/guile-scheme.el

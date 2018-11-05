@@ -1,3 +1,3 @@
 ;; -*- mode: emacs-lisp -*-
 
-(require 'geiser-install)
+(require-package 'geiser)
