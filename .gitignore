@@ -3,9 +3,9 @@ elpa/
 eshell/
 magithub/
 mentor/
+transient/
 ac-comphist.dat
 tramp
 ido.last
 projectile-bookmarks.eld
-mods-available/org-proj*
-mods-enabled/org-proj*
+forge-database.sqlite

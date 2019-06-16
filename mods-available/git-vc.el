@@ -1,6 +1,6 @@
 ;; -*- mode: emacs-lisp -*-
 
-(require-packages '(diff-hl magit magithub))
+(require-packages '(diff-hl magit magit-popup forge))
 
 ;;;; diff highlight - oznaczanie zmian na podstawie repo (poprzez vc więc obsługuje różne)
 
@@ -9,7 +9,6 @@
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode)  ; dodaje diff-hl w dired
 
 (require 'magit)
+(require 'magit-popup)
+(require 'forge)
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
-
-(require 'magithub)
