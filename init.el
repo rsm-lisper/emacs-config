@@ -1,27 +1,59 @@
 
-(load "~/.emacs.d/common.el")
+;;; Code:
 
-;;; - koniec mojego init.el -
+;; dodatkowe repo pakietów - nongnu i melpa
+(require 'package)
+;(add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/packages/"))
+;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;;(package-initialize)
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
  '(custom-safe-themes
-   '("43cadc6254cf27ff544e044b4139a7d50cf44e107cffef255aa8c5943581f606" "e61752b5a3af12be08e99d076aedadd76052137560b7e684a8be2f8d2958edc3" "170bb47b35baa3d2439f0fd26b49f4278e9a8decf611aa33a0dad1397620ddc3" "26d49386a2036df7ccbe802a06a759031e4455f07bda559dcf221f53e8850e69" "a77ced882e25028e994d168a612c763a4feb8c4ab67c5ff48688654d0264370c" "13d20048c12826c7ea636fbe513d6f24c0d43709a761052adbca052708798ce3" "713f898dd8c881c139b62cf05b7ac476d05735825d49006255c0a31f9a4f46ab" "9a155066ec746201156bb39f7518c1828a73d67742e11271e4f24b7b178c4710" default))
- '(display-time-mode t)
+   '("82225f1fa1e4d3b00c63700f691fc0dc7c9bdab8a996e6a78f451f9a15bd74fc" "90a6f96a4665a6a56e36dec873a15cbedf761c51ec08dd993d6604e32dd45940" default))
  '(doc-view-continuous t)
- '(fringe-mode 4 nil (fringe))
  '(geiser-guile-warning-level 'high)
  '(global-linum-mode t)
+ '(indicate-buffer-boundaries 'left)
+ '(indicate-empty-lines 1)
+ '(inhibit-startup-screen t)
+ '(ispell-dictionary nil)
  '(make-backup-files nil)
  '(package-selected-packages
-   '(tangotango-theme slime ox-gfm moe-theme leuven-theme gh-md geiser diff-hl))
- '(ring-bell-function 'ignore)
+   '(tangotango-theme rainbow-blocks flycheck rainbow-identifiers rainbow-delimiters dired-rainbow material-theme leuven-theme diff-hl geiser-guile))
  '(tool-bar-mode nil))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 113 :width normal)))))
+ )
+
+(load-theme 'material)
+(load-theme 'tangotango)
+
+;;;; diff highlight - oznaczanie zmian na podstawie repo (poprzez vc więc obsługuje różne)
+;;(require-package 'diff-hl)
+(require 'diff-hl)
+(global-diff-hl-mode)   ; włącza diff-hl dla wszystkich buforów
+(diff-hl-flydiff-mode)  ; włącza diff w locie - nie trzeba zapisywać pliku żeby widział zmiany
+(add-hook 'dired-mode-hook 'diff-hl-dired-mode)  ; dodaje diff-hl w dired
+
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook #'rainbow-identifiers-mode)
+
+;;;; guile
+(setenv "GUILE_LOAD_PATH"
+	(concat (getenv "HOME") "/proj:" (getenv "HOME") "/guile-libs"))
+
+;;; init.el ends here
