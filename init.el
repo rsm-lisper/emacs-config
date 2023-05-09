@@ -16,7 +16,7 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(custom-safe-themes
-   '("82225f1fa1e4d3b00c63700f691fc0dc7c9bdab8a996e6a78f451f9a15bd74fc" "7922b14d8971cce37ddb5e487dbc18da5444c47f766178e5a4e72f90437c0711" "9fad628c15f1e94af44e07b00ebe3c15109be28f4d73adf4a9e22090845cbce9" default))
+   '("82225f1fa1e4d3b00c63700f691fc0dc7c9bdab8a996e6a78f451f9a15bd74fc" "90a6f96a4665a6a56e36dec873a15cbedf761c51ec08dd993d6604e32dd45940" default))
  '(doc-view-continuous t)
  '(geiser-guile-warning-level 'high)
  '(global-linum-mode t)
@@ -46,6 +46,7 @@
 (diff-hl-flydiff-mode)  ; włącza diff w locie - nie trzeba zapisywać pliku żeby widział zmiany
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode)  ; dodaje diff-hl w dired
 
+(require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
