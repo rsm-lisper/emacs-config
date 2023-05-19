@@ -1,9 +1,9 @@
-
+ 
 ;;; Pakiety do zainstalowania na start.
 
 ;;; Code:
 
-(defvar my-packages '(material-theme tangotango-theme diff-hl flycheck rainbow-delimiters rainbow-identifiers))
+(defvar my-packages '(material-theme tangotango-theme diff-hl flycheck geiser-guile flycheck-guile rainbow-delimiters rainbow-identifiers))
 
 (package-refresh-contents)
 

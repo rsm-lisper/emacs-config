@@ -1,4 +1,4 @@
-
+ 
 ;;; Code:
 
 ;; dodatkowe repo pakietów - nongnu i melpa
@@ -19,6 +19,8 @@
    '("82225f1fa1e4d3b00c63700f691fc0dc7c9bdab8a996e6a78f451f9a15bd74fc" "90a6f96a4665a6a56e36dec873a15cbedf761c51ec08dd993d6604e32dd45940" default))
  '(doc-view-continuous t)
  '(geiser-guile-warning-level 'high)
+ '(geiser-repl-highlight-output-p t)
+ '(geiser-repl-query-on-kill-p nil)
  '(global-linum-mode t)
  '(indicate-buffer-boundaries 'left)
  '(indicate-empty-lines 1)
@@ -53,6 +55,8 @@
 (add-hook 'prog-mode-hook #'rainbow-identifiers-mode)
 
 ;;;; guile
+(require 'geiser-guile)
+(require 'flycheck-guile)
 (setenv "GUILE_LOAD_PATH"
 	(concat (getenv "HOME") "/proj:" (getenv "HOME") "/guile-libs"))
 
