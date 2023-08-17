@@ -22,13 +22,15 @@
  '(geiser-repl-highlight-output-p t)
  '(geiser-repl-query-on-kill-p nil)
  '(global-linum-mode t)
+ '(indent-tabs-mode nil)
  '(indicate-buffer-boundaries 'left)
  '(indicate-empty-lines 1)
  '(inhibit-startup-screen t)
  '(ispell-dictionary nil)
  '(make-backup-files nil)
  '(package-selected-packages
-   '(tangotango-theme rainbow-blocks flycheck rainbow-identifiers rainbow-delimiters dired-rainbow material-theme leuven-theme diff-hl geiser-guile))
+   '(mu4e-overview php-mode tangotango-theme rainbow-blocks flycheck rainbow-identifiers rainbow-delimiters dired-rainbow material-theme leuven-theme diff-hl geiser-guile geiser-racket js2-mode))
+ '(show-paren-mode t)
  '(tool-bar-mode nil))
 
 (custom-set-faces
@@ -42,7 +44,6 @@
 (load-theme 'tangotango)
 
 ;;;; diff highlight - oznaczanie zmian na podstawie repo (poprzez vc więc obsługuje różne)
-;;(require-package 'diff-hl)
 (require 'diff-hl)
 (global-diff-hl-mode)   ; włącza diff-hl dla wszystkich buforów
 (diff-hl-flydiff-mode)  ; włącza diff w locie - nie trzeba zapisywać pliku żeby widział zmiany
@@ -59,5 +60,11 @@
 (require 'flycheck-guile)
 (setenv "GUILE_LOAD_PATH"
 	(concat (getenv "HOME") "/proj:" (getenv "HOME") "/guile-libs"))
+;;;; ..and racket
+(require 'geiser-racket)
+
+;;;; javascript
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;;; init.el ends here
