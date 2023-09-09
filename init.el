@@ -53,7 +53,7 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'prog-mode-hook #'rainbow-identifiers-mode)
+;;(add-hook 'prog-mode-hook #'rainbow-identifiers-mode)
 
 ;;;; guile
 (require 'geiser-guile)
