@@ -28,7 +28,7 @@
  '(ispell-dictionary nil)
  '(make-backup-files nil)
  '(package-selected-packages
-   '(tangotango-theme rainbow-blocks flycheck rainbow-identifiers rainbow-delimiters dired-rainbow material-theme leuven-theme diff-hl geiser-guile))
+   '(php-mode tangotango-theme rainbow-blocks flycheck rainbow-identifiers rainbow-delimiters dired-rainbow material-theme leuven-theme diff-hl geiser-guile))
  '(tool-bar-mode nil))
 
 (custom-set-faces
@@ -52,7 +52,7 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'prog-mode-hook #'rainbow-identifiers-mode)
+;;(add-hook 'prog-mode-hook #'rainbow-identifiers-mode)
 
 ;;;; guile
 (require 'geiser-guile)
