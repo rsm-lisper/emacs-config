@@ -1,5 +1,8 @@
- 
-;;; Code:
+
+(defun install ()
+  (interactive)
+  (package-refresh-contents)
+  (package-install-selected-packages))
 
 ;; dodatkowe repo pakietów - nongnu i melpa
 (require 'package)
@@ -16,7 +19,7 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(custom-safe-themes
-   '("82225f1fa1e4d3b00c63700f691fc0dc7c9bdab8a996e6a78f451f9a15bd74fc" "90a6f96a4665a6a56e36dec873a15cbedf761c51ec08dd993d6604e32dd45940" default))
+   '("e3999eba4f25d912d7d61cbaaed1b551957e61da047279da89499d3bd1f1d007" default))
  '(doc-view-continuous t)
  '(geiser-guile-warning-level 'high)
  '(geiser-mode-smart-tab-p t)
@@ -31,7 +34,7 @@
  '(ispell-dictionary nil)
  '(make-backup-files nil)
  '(package-selected-packages
-   '(vertico company-fuzzy company farmhouse-themes markdown-mode mu4e-overview php-mode tangotango-theme rainbow-blocks flycheck rainbow-identifiers rainbow-delimiters dired-rainbow material-theme leuven-theme diff-hl geiser-guile geiser-racket js2-mode))
+   '(moe-theme farmhouse-themes tangotango-theme material-theme leuven-theme vertico company-fuzzy company markdown-mode php-mode rainbow-blocks flycheck-guile flycheck rainbow-identifiers rainbow-delimiters dired-rainbow diff-hl geiser-guile geiser-racket js2-mode))
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(vertico-mode t))
@@ -43,8 +46,9 @@
  ;; If there is more than one, they won't work right.
  )
 
-(load-theme 'material)
-(load-theme 'tangotango)
+;;(load-theme 'material)
+(load-theme 'moe-dark)
+;;(load-theme 'tangotango)
 ;;(load-theme 'farmhouse-dark)
 
 ;;;; diff highlight - oznaczanie zmian na podstawie repo (poprzez vc więc obsługuje różne)
@@ -73,5 +77,3 @@
 ;;;; javascript
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-
-;;; init.el ends here
