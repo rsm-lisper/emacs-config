@@ -16,11 +16,13 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(custom-safe-themes
-   '("82225f1fa1e4d3b00c63700f691fc0dc7c9bdab8a996e6a78f451f9a15bd74fc" "90a6f96a4665a6a56e36dec873a15cbedf761c51ec08dd993d6604e32dd45940" default))
+   '("6940b1c837efb74240fb1e1a86eb334448323e92ca87fc8dd30117e7397a29ef" "82225f1fa1e4d3b00c63700f691fc0dc7c9bdab8a996e6a78f451f9a15bd74fc" "90a6f96a4665a6a56e36dec873a15cbedf761c51ec08dd993d6604e32dd45940" default))
  '(doc-view-continuous t)
  '(geiser-guile-warning-level 'high)
+ '(geiser-mode-smart-tab-p t)
  '(geiser-repl-highlight-output-p t)
  '(geiser-repl-query-on-kill-p nil)
+ '(global-company-fuzzy-mode t nil (company-fuzzy))
  '(global-linum-mode t)
  '(indent-tabs-mode nil)
  '(indicate-buffer-boundaries 'left)
@@ -29,9 +31,10 @@
  '(ispell-dictionary nil)
  '(make-backup-files nil)
  '(package-selected-packages
-   '(mu4e-overview php-mode tangotango-theme rainbow-blocks flycheck rainbow-identifiers rainbow-delimiters dired-rainbow material-theme leuven-theme diff-hl geiser-guile geiser-racket js2-mode))
+   '(vertico company-fuzzy company farmhouse-themes realgud markdown-mode php-mode tangotango-theme rainbow-blocks flycheck rainbow-identifiers rainbow-delimiters dired-rainbow material-theme leuven-theme diff-hl geiser-guile geiser-racket js2-mode))
  '(show-paren-mode t)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(vertico-mode t))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -43,6 +46,9 @@
 (load-theme 'material)
 (load-theme 'tangotango)
 
+(require 'vertico)
+(vertico-mode)
+
 ;;;; diff highlight - oznaczanie zmian na podstawie repo (poprzez vc więc obsługuje różne)
 (require 'diff-hl)
 (global-diff-hl-mode)   ; włącza diff-hl dla wszystkich buforów
@@ -53,7 +59,10 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'prog-mode-hook #'rainbow-identifiers-mode)
+;;(add-hook 'prog-mode-hook #'rainbow-identifiers-mode)
+
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;;;; guile
 (require 'geiser-guile)
