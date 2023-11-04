@@ -18,8 +18,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(custom-safe-themes
-   '("e3999eba4f25d912d7d61cbaaed1b551957e61da047279da89499d3bd1f1d007" default))
  '(doc-view-continuous t)
  '(geiser-guile-warning-level 'high)
  '(geiser-mode-smart-tab-p t)
@@ -50,6 +48,9 @@
 (load-theme 'moe-dark)
 ;;(load-theme 'tangotango)
 ;;(load-theme 'farmhouse-dark)
+
+(require 'vertico)
+(vertico-mode)
 
 ;;;; diff highlight - oznaczanie zmian na podstawie repo (poprzez vc więc obsługuje różne)
 (require 'diff-hl)
