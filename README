@@ -1,2 +1,0 @@
-
-Po pobraniu do ~/.emacs.d/, wpierw otworzyć w Emacs'ie plik install.el i wykonać (C-x C-e) kolejno wszystkie linie lub cały bufor (M-x eval-buffer). Emacs odświeży informacje o pakietach po czym zainstaluje co trzeba. Od następnego startu wszystko powinno działać.
