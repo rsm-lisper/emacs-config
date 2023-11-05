@@ -73,7 +73,11 @@
 (require 'geiser-guile)
 (require 'flycheck-guile)
 (setenv "GUILE_LOAD_PATH"
-	(concat (getenv "HOME") "/proj"))
+        (string-join
+         (list
+	  (concat (getenv "HOME") "/proj")
+          (concat (getenv "HOME") "/guile-libs"))
+         ":"))
 ;;;; ..and racket
 (require 'geiser-racket)
 
