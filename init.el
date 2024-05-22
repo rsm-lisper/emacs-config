@@ -19,8 +19,10 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(custom-safe-themes
-   '("e3999eba4f25d912d7d61cbaaed1b551957e61da047279da89499d3bd1f1d007" default))
+   '("8d3d935ad6797516f375b97b0d36961d4741ed84563284267bc42a1936a79830" default))
  '(doc-view-continuous t)
+ '(flycheck-disabled-checkers '(c/c++-clang c/c++-cppcheck))
+ '(flycheck-gcc-language-standard "c89")
  '(geiser-guile-warning-level 'high)
  '(geiser-mode-smart-tab-p t)
  '(geiser-repl-highlight-output-p t)
@@ -34,22 +36,32 @@
  '(ispell-dictionary nil)
  '(make-backup-files nil)
  '(package-selected-packages
-   '(moe-theme farmhouse-themes tangotango-theme material-theme leuven-theme vertico company-fuzzy company markdown-mode php-mode rainbow-blocks flycheck-guile flycheck rainbow-identifiers rainbow-delimiters dired-rainbow diff-hl geiser-guile geiser-racket js2-mode))
- '(show-paren-mode t)
+   '(sr-speedbar moe-theme farmhouse-themes tangotango-theme material-theme leuven-theme vertico company-fuzzy company markdown-mode php-mode rainbow-blocks flycheck-guile flycheck rainbow-identifiers rainbow-delimiters dired-rainbow diff-hl geiser-guile geiser-racket js2-mode))
+ '(speedbar-show-unknown-files t)
+ '(sr-speedbar-default-width 25)
+ '(sr-speedbar-right-side nil)
  '(tool-bar-mode nil)
- '(vertico-mode t))
+ '(vertico-mode t)
+ '(warning-suppress-types '((comp))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:family "Liberation Mono" :foundry "1ASC" :slant normal :weight normal :height 120 :width normal)))))
+
+(if (window-system)
+    (set-frame-width (selected-frame) 140))
 
 ;;(load-theme 'material)
 (load-theme 'moe-dark)
 ;;(load-theme 'tangotango)
 ;;(load-theme 'farmhouse-dark)
+
+(require 'sr-speedbar)
+(sr-speedbar-open)
+(switch-to-buffer "*scratch*")
 
 (require 'vertico)
 (vertico-mode)

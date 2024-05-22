@@ -4,9 +4,10 @@ eshell/
 magithub/
 mentor/
 transient/
+eln-cache/
 ac-comphist.dat
 tramp
 ido.last
 projectile-bookmarks.eld
 forge-database.sqlite
-session.107bdc576992c6728168815877016413900000023180079
+session.*
