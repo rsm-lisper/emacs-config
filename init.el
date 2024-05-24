@@ -36,7 +36,7 @@
  '(ispell-dictionary nil)
  '(make-backup-files nil)
  '(package-selected-packages
-   '(sr-speedbar moe-theme farmhouse-themes tangotango-theme material-theme leuven-theme vertico company-fuzzy company markdown-mode php-mode rainbow-blocks flycheck-guile flycheck rainbow-identifiers rainbow-delimiters dired-rainbow diff-hl geiser-guile geiser-racket js2-mode))
+   '(vdiff sr-speedbar moe-theme farmhouse-themes tangotango-theme material-theme leuven-theme vertico company-fuzzy company markdown-mode php-mode rainbow-blocks flycheck-guile flycheck rainbow-identifiers rainbow-delimiters dired-rainbow diff-hl geiser-guile geiser-racket js2-mode))
  '(speedbar-show-unknown-files t)
  '(sr-speedbar-default-width 25)
  '(sr-speedbar-right-side nil)
@@ -71,6 +71,9 @@
 (global-diff-hl-mode)   ; włącza diff-hl dla wszystkich buforów
 (diff-hl-flydiff-mode)  ; włącza diff w locie - nie trzeba zapisywać pliku żeby widział zmiany
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode)  ; dodaje diff-hl w dired
+
+(require 'vdiff)
+(define-key vdiff-mode-map (kbd "C-c") vdiff-mode-prefix-map)
 
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
