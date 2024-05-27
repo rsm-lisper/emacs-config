@@ -1,18 +1,14 @@
 
-# Instalacja
+# Installation
 
-Stworzyć katalog dla konfiguracji:
+Backup existing config:
 ```sh
-mkdir ~/.emacs.d
+mv ~/.emacs.d ~/.emacs.d_backup
 ```
-Sklonować tam repozytorium:
+Clone this repo to `~/.emacs.d`:
 ```sh
-cd ~/.emacs.d
-git clone https://github.com/rsm-lisper/emacs-konfiguracja .
+git clone https://github.com/rsm-lisper/emacs-config/ ~/.emacs.d/
 ```
-Uruchomić emacs'a. Wyświetli błędy z powodu brakujących pakietów. Aby je zainstalować - wywołać komendę `install` (`M-x install`).
+Start Emacs. It'll display a lot of errors because of missing packages. To install them - run Emacs function `M-x` `package-install-selected-packages`.
 
-Gotowe!
-
-Od następnego uruchomienia emacs będzie miał już wszystko co trzeba :)
-
+**Done! :)**

@@ -1,9 +1,4 @@
 
-(defun install ()
-  (interactive)
-  (package-refresh-contents)
-  (package-install-selected-packages))
-
 ;; dodatkowe repo pakietów - nongnu i melpa
 (require 'package)
 ;(add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/packages/"))
