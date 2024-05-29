@@ -1,5 +1,5 @@
 
-;; dodatkowe repo pakietów - nongnu i melpa
+;; additional repos - nongnu and melpa
 (require 'package)
 ;(add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/packages/"))
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
@@ -61,15 +61,17 @@
 (require 'vertico)
 (vertico-mode)
 
-;;;; diff highlight - oznaczanie zmian na podstawie repo (poprzez vc więc obsługuje różne)
+;;;; diff highlight - code versioning highligh
 (require 'diff-hl)
-(global-diff-hl-mode)   ; włącza diff-hl dla wszystkich buforów
-(diff-hl-flydiff-mode)  ; włącza diff w locie - nie trzeba zapisywać pliku żeby widział zmiany
-(add-hook 'dired-mode-hook 'diff-hl-dired-mode)  ; dodaje diff-hl w dired
+(global-diff-hl-mode)   ; enables diff-hl for all buffers
+(diff-hl-flydiff-mode)  ; enables diff on the fly - no need to save file to see changes
+(add-hook 'dired-mode-hook 'diff-hl-dired-mode)  ; adds diff-hl to dired
 
+;;;; similar to meld - code comparison side by side
 (require 'vdiff)
 (define-key vdiff-mode-map (kbd "C-c") vdiff-mode-prefix-map)
 
+;;;; check code on the fly
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
@@ -92,5 +94,5 @@
 (require 'geiser-racket)
 
 ;;;; javascript
-(require 'js2-mode)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+;;(require 'js2-mode)
+;;(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
