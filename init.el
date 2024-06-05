@@ -31,7 +31,7 @@
  '(ispell-dictionary nil)
  '(make-backup-files nil)
  '(package-selected-packages
-   '(vdiff sr-speedbar moe-theme farmhouse-themes tangotango-theme material-theme leuven-theme vertico company-fuzzy company markdown-mode php-mode rainbow-blocks flycheck-guile flycheck rainbow-identifiers rainbow-delimiters dired-rainbow diff-hl geiser-guile geiser-racket js2-mode))
+   '(eterm-256color vdiff sr-speedbar moe-theme farmhouse-themes tangotango-theme material-theme leuven-theme vertico company-fuzzy company markdown-mode php-mode rainbow-blocks flycheck-guile flycheck rainbow-identifiers rainbow-delimiters dired-rainbow diff-hl geiser-guile geiser-racket js2-mode))
  '(speedbar-show-unknown-files t)
  '(sr-speedbar-default-width 25)
  '(sr-speedbar-right-side nil)
@@ -57,6 +57,10 @@
 (require 'sr-speedbar)
 (sr-speedbar-open)
 (switch-to-buffer "*scratch*")
+
+;;;; ansi-term 256 color support
+(require 'eterm-256color)
+(add-hook 'term-mode-hook #'eterm-256color-mode)
 
 (require 'vertico)
 (vertico-mode)
