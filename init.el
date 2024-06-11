@@ -23,7 +23,6 @@
  '(geiser-repl-highlight-output-p t)
  '(geiser-repl-query-on-kill-p nil)
  '(global-company-fuzzy-mode t nil (company-fuzzy))
- '(global-linum-mode t)
  '(indent-tabs-mode nil)
  '(indicate-buffer-boundaries 'left)
  '(indicate-empty-lines 1)
@@ -48,6 +47,8 @@
 
 (if (window-system)
     (set-frame-width (selected-frame) 140))
+
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;;(load-theme 'material)
 (load-theme 'moe-dark)
