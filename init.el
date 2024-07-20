@@ -12,9 +12,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(blink-cursor-blinks 0)
  '(column-number-mode t)
  '(custom-safe-themes
-   '("8d3d935ad6797516f375b97b0d36961d4741ed84563284267bc42a1936a79830" default))
+   '("fe6b6d4be494bd23c360115ab703985b6366ab766800c9d9b960b0da113123e9" "8d3d935ad6797516f375b97b0d36961d4741ed84563284267bc42a1936a79830" default))
  '(doc-view-continuous t)
  '(flycheck-disabled-checkers '(c/c++-clang c/c++-cppcheck))
  '(flycheck-gcc-language-standard "c89")
@@ -30,7 +31,7 @@
  '(ispell-dictionary nil)
  '(make-backup-files nil)
  '(package-selected-packages
-   '(eterm-256color vdiff sr-speedbar moe-theme farmhouse-themes tangotango-theme material-theme leuven-theme vertico company-fuzzy company markdown-mode php-mode rainbow-blocks flycheck-guile flycheck rainbow-identifiers rainbow-delimiters dired-rainbow diff-hl geiser-guile geiser-racket js2-mode))
+   '(alect-themes solarized-theme graphviz-dot-mode eterm-256color vdiff sr-speedbar moe-theme farmhouse-themes tangotango-theme material-theme leuven-theme vertico company-fuzzy company markdown-mode php-mode rainbow-blocks flycheck-guile flycheck rainbow-identifiers rainbow-delimiters dired-rainbow diff-hl geiser-guile geiser-racket js2-mode))
  '(speedbar-show-unknown-files t)
  '(sr-speedbar-default-width 25)
  '(sr-speedbar-right-side nil)
@@ -43,21 +44,19 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Liberation Mono" :foundry "1ASC" :slant normal :weight normal :height 120 :width normal)))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 120 :width normal)))))
 
 (if (window-system)
     (set-frame-width (selected-frame) 140))
 
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
-;;(load-theme 'material)
 (load-theme 'moe-dark)
-;;(load-theme 'tangotango)
-;;(load-theme 'farmhouse-dark)
 
-(require 'sr-speedbar)
-(sr-speedbar-open)
-(switch-to-buffer "*scratch*")
+;;;; sr-speedbar
+;;(require 'sr-speedbar)
+;;(sr-speedbar-open)
+;;(switch-to-buffer "*scratch*")
 
 ;;;; ansi-term 256 color support
 (require 'eterm-256color)
