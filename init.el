@@ -14,8 +14,12 @@
  ;; If there is more than one, they won't work right.
  '(blink-cursor-blinks 0)
  '(column-number-mode t)
+ '(company-quickhelp-color-background "black")
+ '(company-quickhelp-color-foreground "white smoke")
+ '(company-quickhelp-delay 1.5)
+ '(company-quickhelp-mode t)
  '(custom-safe-themes
-   '("fe6b6d4be494bd23c360115ab703985b6366ab766800c9d9b960b0da113123e9" "8d3d935ad6797516f375b97b0d36961d4741ed84563284267bc42a1936a79830" default))
+   '("9f986dcc0de26c1c8b6dfd749eb7351b1a3c8db31b3330a7dfdd25be1b47cb22" default))
  '(doc-view-continuous t)
  '(flycheck-disabled-checkers '(c/c++-clang c/c++-cppcheck))
  '(flycheck-gcc-language-standard "c89")
@@ -23,7 +27,6 @@
  '(geiser-mode-smart-tab-p t)
  '(geiser-repl-highlight-output-p t)
  '(geiser-repl-query-on-kill-p nil)
- '(global-company-fuzzy-mode t nil (company-fuzzy))
  '(indent-tabs-mode nil)
  '(indicate-buffer-boundaries 'left)
  '(indicate-empty-lines 1)
@@ -31,10 +34,11 @@
  '(ispell-dictionary nil)
  '(make-backup-files nil)
  '(package-selected-packages
-   '(alect-themes solarized-theme graphviz-dot-mode eterm-256color vdiff sr-speedbar moe-theme farmhouse-themes tangotango-theme material-theme leuven-theme vertico company-fuzzy company markdown-mode php-mode rainbow-blocks flycheck-guile flycheck rainbow-identifiers rainbow-delimiters dired-rainbow diff-hl geiser-guile geiser-racket js2-mode))
+   '(multi-term dired-single orderless marginalia which-key which-key-posframe company-arduino company-c-headers company-ctags company-dict company-flx company-php company-quickhelp company-quickhelp-terminal company-shell company-web slime-company slime-repl-ansi-color slime-theme slime alect-themes solarized-theme graphviz-dot-mode eterm-256color vdiff sr-speedbar moe-theme farmhouse-themes tangotango-theme material-theme leuven-theme vertico markdown-mode php-mode rainbow-blocks flycheck-guile flycheck rainbow-identifiers rainbow-delimiters dired-rainbow diff-hl geiser-guile geiser-racket js2-mode))
  '(speedbar-show-unknown-files t)
  '(sr-speedbar-default-width 25)
  '(sr-speedbar-right-side nil)
+ '(term-unbind-key-list '("C-T" "C-z" "C-x" "C-c" "C-h" "C-y" "<ESC>"))
  '(tool-bar-mode nil)
  '(vertico-mode t)
  '(warning-suppress-types '((comp))))
@@ -58,12 +62,29 @@
 ;;(sr-speedbar-open)
 ;;(switch-to-buffer "*scratch*")
 
+(require 'which-key)
+(which-key-mode)
+
 ;;;; ansi-term 256 color support
 (require 'eterm-256color)
 (add-hook 'term-mode-hook #'eterm-256color-mode)
+;;;; ansi-term [C-T] key binding and default shell
+(require 'multi-term)
+(setq multi-term-program "/bin/zsh")
+(setq term-unbind-key-list (cons "C-T" term-unbind-key-list))
+(global-set-key "\C-T" 'multi-term)
+
 
 (require 'vertico)
-(vertico-mode)
+(add-hook 'after-init-hook 'vertico-mode)
+;;;(vertico-mode)
+
+(require 'marginalia)
+(add-hook 'after-init-hook 'marginalia-mode)
+
+(require 'orderless)
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;;;; diff highlight - code versioning highligh
 (require 'diff-hl)
@@ -82,9 +103,6 @@
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 ;;(add-hook 'prog-mode-hook #'rainbow-identifiers-mode)
 
-(require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
-
 ;;;; guile
 (require 'geiser-guile)
 (require 'flycheck-guile)
@@ -96,6 +114,13 @@
          ":"))
 ;;;; ..and racket
 (require 'geiser-racket)
+
+;;;; slime (for common lisp)
+(require 'slime)
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;; Replace "sbcl" with the path to your implementation
+(setq inferior-lisp-program "sbcl")
+(require 'slime-company)
 
 ;;;; javascript
 ;;(require 'js2-mode)
