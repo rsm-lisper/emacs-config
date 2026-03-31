@@ -1,5 +1,7 @@
+# Active development moved to [codeberg](https://codeberg.org/rsm/emacs-config)
+------
 
-# Installation
+## Installation
 
 Backup existing config:
 ```sh
